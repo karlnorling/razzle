@@ -4,7 +4,7 @@ const fs = require('fs');
 const chalk = require('chalk');
 const jest = require('jest');
 
-const jestMajorVersion = parseInt(jest.default.getVersion().split('.')[0]);
+const jestMajorVersion = parseInt(jest.getVersion().split('.')[0]);
 // first search for setupTests.ts file
 // if .ts file not exists then looks for setupTests.js
 function getSetupTestsFilePath(paths) {
@@ -38,6 +38,7 @@ module.exports = (
         collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts'],
 
         testMatch: [
+          '<rootDir>/src/*.test.(ts|js)?(x)',
           '<rootDir>/src/**/__tests__/**/*(*.)@(spec|test).(ts|js)?(x)',
           '<rootDir>/tests/**/*(*.)@(spec|test).(ts|js)?(x)',
         ],

@@ -1,5 +1,5 @@
 {
-  "lerna": "3.20.2",
+  "lerna": "3.22.1",
   "packages": [
     "packages/razzle",
     "packages/babel-preset-razzle",
@@ -15,11 +15,7 @@
     },
     "publish": {
       "npmClient": "npm",
-      "allowBranch": [
-        "master",
-        "canary",
-        "finch"
-      ],
+      "allowBranch": ["master", "canary", "finch"],
       "registry": "https://registry.npmjs.org/"
     }
   },

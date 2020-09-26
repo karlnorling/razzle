@@ -1,4 +1,3 @@
-
 # Contributing to Razzle
 
 Hi there! Thanks for your interest in Razzle. This guide will help you get started contributing.
@@ -6,6 +5,7 @@ Hi there! Thanks for your interest in Razzle. This guide will help you get start
 <!-- INSERT doctoc generated TOC please keep comment here to allow auto update -->
 <!-- START doctoc generated instructions please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN yarn build-docs TO UPDATE -->
+
 - [Contributing to Razzle](#contributing-to-razzle)
   - [Developing locally](#developing-locally)
     - [Commands](#commands)
@@ -18,7 +18,7 @@ Hi there! Thanks for your interest in Razzle. This guide will help you get start
   - [Why wasn't my PR merged?](#why-wasnt-my-pr-merged)
   - [Getting recognition](#getting-recognition)
   - [Getting help](#getting-help)
-<!-- END doctoc generated instructions please keep comment here to allow auto update -->
+    <!-- END doctoc generated instructions please keep comment here to allow auto update -->
 
 Razzle is monorepo made up of a several npm packages powered by Lerna.
 
@@ -47,10 +47,17 @@ This will install all `node_modules` in all the packages and all the examples an
 inter-dependencies. Thus when you make local changes in any of the packages you can try them
 immediately in all the examples.
 
+### Prerequisites
+
+It's required that you have `yarn` and `lerna` installed globally.
+
+- `npm install --global yarn`
+- `npm install --global lerna`
+
 ### Commands
 
 - `yarn run clean`: Clean up all `node_modules` and remove all symlinks from packages and examples.
-- `yarn run bootstrap`: Run `yarn` on all examples and packages. Automatically symlinks inter-dependent modules.
+- `lerna bootstrap`: Run `yarn` on all examples and packages. Automatically symlinks inter-dependent modules.
 - `yarn run test`: Runs all tests
 - `yarn run test:packages`: Runs tests for packages
 - `yarn run test:e2e`: Runs end-to-end tests
@@ -68,6 +75,7 @@ git pull origin master
 ## Adding examples
 
 ### Use `examples/basic` as template
+
 If you'd like to add an example, I suggest you duplicate the `examples/basic` folder and use that as kind of base template. Before you start adding stuff, go ahead and change the name of the package in the your new example's `package.json`. Then go back to the project root and run `yarn bootstrap`. This will make sure that your new example is using your local version of all the `packages`.
 
 ### Naming examples
@@ -77,7 +85,7 @@ All example folders should be named `with-<thing-you-are-demonstrating>`. Each e
 ### How to get your example merged
 
 - Make sure to comment the important parts of your code and include a **well-written**
-"Idea behind the example" section. This is more important to me than your actual code.
+  "Idea behind the example" section. This is more important to me than your actual code.
 - Keep your example limited to one idea / library / feature (e.g. don't submit `with-styled-components-and-material-ui`). That being said, there are times when this rule will be relaxed such as if you are showing how to use Apollo and Redux or \<Flux Library\> + React Router.
 - Your example **MUST** implement Hot Module Replacement. If it does not update when you make edits, you have broken something.
 - Your example should be minimalistic and concise, or a direct copy of another prominent example from the original library (like copying an example directly from react-redux).

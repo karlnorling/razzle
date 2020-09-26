@@ -24,7 +24,8 @@ module.exports = function install(opts) {
 
   return new Promise(function(resolve, reject) {
     const stopInstallSpinner = output.wait('Installing modules');
-
+    console.log('installCmd', installCmd);
+    console.log('installArgs', installArgs);
     execa(installCmd, installArgs)
       .then(function() {
         // Confirm that all dependencies were installed

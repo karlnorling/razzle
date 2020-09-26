@@ -5,7 +5,7 @@
 
 const shell = require('shelljs');
 const util = require('../fixtures/util');
-const path = require("path");
+const path = require('path');
 
 const silent = true;
 shell.config.verbose = !silent;
@@ -23,9 +23,7 @@ describe('create-razzle-app', () => {
 
   it('should create app from default template', () => {
     util.setupStage(stageName);
-    const output = shell.exec(
-      `${craPath} cra --no-install`
-    );
+    const output = shell.exec(`${craPath} cra --no-install`);
     expect(shell.test('-d', 'cra/node_modules')).toBeFalsy();
 
     expect(shell.test('-f', 'cra/yarn.lock')).toBeFalsy();
@@ -40,11 +38,8 @@ describe('create-razzle-app', () => {
 
   it('should create app from default template and install packages', () => {
     util.setupStage(stageName);
-    const output = shell.exec(
-      `${craPath} cra`
-    );
+    const output = shell.exec(`${craPath} cra`);
     expect(shell.test('-d', 'cra/node_modules')).toBeTruthy();
-
     expect(shell.test('-f', 'cra/yarn.lock')).toBeTruthy();
 
     expect(shell.test('-f', 'cra/package.json')).toBeTruthy();
@@ -57,9 +52,7 @@ describe('create-razzle-app', () => {
 
   it('should create app from official example', () => {
     util.setupStage(stageName);
-    const output = shell.exec(
-      `${craPath} cra --example=basic --no-install`
-    );
+    const output = shell.exec(`${craPath} cra --example=basic --no-install`);
     expect(shell.test('-f', 'cra/package.json')).toBeTruthy();
 
     expect(shell.test('-d', 'cra/src')).toBeTruthy();
@@ -185,23 +178,22 @@ describe('create-razzle-app', () => {
     expect(output.code).toBe(0);
   });
 
-    it('should create app from file example', () => {
-      util.setupStage(stageName);
-      const output = shell.exec(
-        `${craPath} cra --example=file:../examples/basic --no-install`
-      );
-      expect(shell.test('-f', 'cra/package.json')).toBeTruthy();
+  it('should create app from file example', () => {
+    util.setupStage(stageName);
+    const output = shell.exec(
+      `${craPath} cra --example=file:../examples/basic --no-install`
+    );
+    expect(shell.test('-f', 'cra/package.json')).toBeTruthy();
 
-      expect(shell.test('-d', 'cra/src')).toBeTruthy();
-      expect(shell.ls('cra/src/index.js').code).toBe(0);
+    expect(shell.test('-d', 'cra/src')).toBeTruthy();
+    expect(shell.ls('cra/src/index.js').code).toBe(0);
 
-      expect(output.code).toBe(0);
-    });
+    expect(output.code).toBe(0);
+  });
 
   it('should exit with an error code when no project name is supplied', () => {
     util.setupStage(stageName);
-    const output = shell.exec(
-      `${path.join(craPath)}`, {
+    const output = shell.exec(`${path.join(craPath)}`, {
       silent: true,
     });
 
